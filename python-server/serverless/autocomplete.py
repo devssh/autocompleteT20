@@ -15,7 +15,7 @@ teams = pd.read_csv(data_dir + 'teams.txt', delimiter="\t")["Names"].tolist()
 keywords = pd.read_csv(data_dir + 'keywords.txt', delimiter="\t")["Keywords"].tolist()
 stadiums = stadiums_df["Names"].tolist()
 cities = stadiums_df["City"].tolist()
-players = [*players_df["Formal Name"].tolist(), *players_df["Commonly Called as"].tolist()]
+players = list({*players_df["Formal Name"].tolist(), *players_df["Commonly Called as"].tolist()})
 
 import inflect
 
