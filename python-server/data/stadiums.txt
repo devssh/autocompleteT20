@@ -1,0 +1,49 @@
+Names	City
+MA Chidarbaram Stadium	Chennai
+Lord's	London
+Brabourne Stadium 	Mumbai
+Feroz Shah Kotla	New Delhi
+Indira Gandhi Stadium 	Vijayawada
+Indira Priyadarshini Stadium 	Visakhapatnam
+Jawaharlal Nehru Stadium 	New Delhi
+Gandhi Stadium 	Jalandhar
+Green Park	Kanpur
+Rajiv Gandhi International Stadium 	Hyderabad
+Chinnaswamy Stadium	Bangalore
+Eden Gardens	Kolkata
+Barabati Stadium 	Cuttack
+Adelaide Oval	Adelaide
+Sydney Cricket Ground	Sydney
+Melbourne Cricket Ground	Melbourne
+The Gabba	Woolloongabba
+Wankhede Stadium	Mumbai
+The Oval 	London
+Sahara Park Newlands	Cape Town
+Willowmoore Park 	Benoni
+Supersport Park	Centurion
+Sahara Stadium Kingsmead 	Durban
+Buffalo Park	East London
+Bidvest Wanderers Stadium 	Johannesburg
+Sahara Oval St George’s Park	Port Elizabeth
+Hagley Oval	Christchurch
+Seddon Park	Hamilton
+Westpac Stadium	Wellington
+Warner Park 	Basseterre
+Sharjah Cricket Association Stadium	Sharjah
+ICC Cricket Academy Ground	Dubai
+Zohur Ahmed Chowdhury Stadium	Chittagong
+Khan Shaheb Osman Ali Stadium	Fatullah
+Sher-e-Bangla National CricketStadium	Dhaka
+Sheikh Abu Naser Stadium	Khulna
+Harare Sports Club	Harare
+Queens Sports Club	Bulawayo
+Pallekele International Cricket Stadium	Sri Lanka
+JSCA International Stadium Complex	Ranchi
+Sheikh Zayed Stadium	Abu Dhabi
+Rawalpindi Cricket Stadium	Rawalpindi
+Punjab Stadium	Lahore
+National Stadium	Karachi
+Colombo Cricket Club Ground	Colombo
+Rangiri Dumbulla Stadium 	Dambulla
+Asgiriya Stadium 	Kandy
+Bangabandhu National Stadium 	Dhaka

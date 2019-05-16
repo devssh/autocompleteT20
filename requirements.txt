@@ -4,3 +4,4 @@ psycopg2==2.7.7
 flask-cors==3.0.7
 ftfy==5.5.1
 dill==0.2.9
+pandas==0.24.2

@@ -1,0 +1,43 @@
+Keywords
+World cup
+Finals
+Semi-finals
+Score
+Runs
+Wickets
+Batsman
+Bowler
+Wicket-keeper
+Players
+Centuries
+Half-centuries
+Matches
+Innings
+Sixes
+Boundaries
+Man of the match
+Where
+Who
+When
+What
+How many
+How much
+Number of
+Best
+Top
+location
+stadium
+players
+team
+victory
+won
+win
+lost
+lose
+catch
+bold
+stemp
+umpire
+keeper
+wicket-keeper
+feilding
