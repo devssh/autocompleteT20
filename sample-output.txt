@@ -1,0 +1,137 @@
+wh?
+Where
+Who
+When
+What
+
+where is ?
+MA Chidarbaram Stadium
+Lord's
+Brabourne Stadium 
+Feroz Shah Kotla
+Indira Gandhi Stadium 
+Indira Priyadarshini Stadium 
+
+where is m?
+MA Chidarbaram Stadium
+Melbourne Cricket Ground
+
+numb?
+Number of
+
+number of ?
+players
+Boundaries
+Sixes
+Innings
+Matches
+Half-centuries
+
+by ?
+Virat Kohli
+Virat Kohli
+MS Dhoni
+MS Dhoni
+Sachin Tendulkar
+Sachin Tendulkar
+
+ho?
+How many
+How much
+
+how many ?
+players
+Boundaries
+Sixes
+Innings
+Matches
+Half-centuries
+
+in ?
+MA Chidarbaram Stadium
+Lord's
+Brabourne Stadium 
+Feroz Shah Kotla
+Indira Gandhi Stadium 
+Indira Priyadarshini Stadium 
+
+against ?
+India
+Australia
+West Indies
+Bangladesh
+Zimbabwe
+South Africa
+
+who is the ?
+Wicket-keeper
+Man of the match
+Best
+Top
+bold
+wicket-keeper
+
+who is the ma?
+Man of the match
+
+how much did ?
+Virat Kohli
+Virat Kohli
+MS Dhoni
+MS Dhoni
+Sachin Tendulkar
+Sachin Tendulkar
+
+in ?
+MA Chidarbaram Stadium
+Lord's
+Brabourne Stadium 
+Feroz Shah Kotla
+Indira Gandhi Stadium 
+Indira Priyadarshini Stadium 
+
+Numb?
+Number of
+
+Number of ?
+players
+Boundaries
+Sixes
+Innings
+Matches
+Half-centuries
+
+Number of centuries scored by ?
+Virat Kohli
+Virat Kohli
+MS Dhoni
+MS Dhoni
+Sachin Tendulkar
+Sachin Tendulkar
+
+Number of sixes by Sachin against ?
+Australia
+West Indies
+Bangladesh
+Zimbabwe
+South Africa
+England
+
+Number of sixes by Dhoni against ?
+India
+Australia
+West Indies
+Bangladesh
+Zimbabwe
+South Africa
+
+Number of sixes by Sachin against Pak?
+Pakistan
+
+Who is the man of the match of Wo?
+World cup
+
+How much did India score in World Cup 2011 fi?
+Finals
+
+

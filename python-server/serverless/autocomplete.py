@@ -8,6 +8,8 @@ data_dir = "data/"
 import pandas as pd
 
 players_df = pd.read_csv(data_dir + 'players.txt', delimiter="\t")
+players_df["Country"] = "Other"
+players_df.loc[players_df["Commonly Called as"].str.startswith("Sachin"), "Country"] = "India"
 stadiums_df = pd.read_csv(data_dir + 'stadiums.txt', delimiter="\t")
 teams = pd.read_csv(data_dir + 'teams.txt', delimiter="\t")["Names"].tolist()
 keywords = pd.read_csv(data_dir + 'keywords.txt', delimiter="\t")["Keywords"].tolist()
@@ -17,6 +19,7 @@ players = [*players_df["Formal Name"].tolist(), *players_df["Commonly Called as"
 
 import inflect
 
+# or alternatively use NNS for plural detection in NLTK Part of Speech Tagging below
 inflect = inflect.engine()
 plural_keywords = list(
     reversed([word for word in keywords if len(word.split(" ")) < 2 and not inflect.singular_noun(word) is False]))
@@ -74,15 +77,25 @@ def get_suggestions_for(text):
     if context.endswith("in"):
         suggestions = [*applicable_stadiums, *applicable_city]
 
-    if context.endswith("against"):
-        # TODO past player search
-        suggestions = [*applicable_teams]
-
     if context.endswith("who is the"):
         suggestions = [*applicable_superlative_keywords]
 
     if context.endswith("how much did"):
         suggestions = [*applicable_players, *applicable_teams]
+
+    if context.endswith("against"):
+        batsman = [player for player in players if player.lower() in context]
+        if len(batsman) > 0:
+            batsman_in_context = batsman[-1]
+            from_country = players_df.loc[
+                players_df["Formal Name"].str.lower().str.startswith(batsman_in_context), "Country"].tolist()
+            if len(from_country) == 0:
+                from_country = players_df.loc[
+                    players_df["Commonly Called as"].str.lower().str.startswith(batsman_in_context.lower()), "Country"].tolist()
+            from_country = from_country[0].lower()
+
+            applicable_teams = [team for team in applicable_teams if not team.lower() in [from_country]]
+        suggestions = [*applicable_teams]
 
     return suggestions[0:6]
 
