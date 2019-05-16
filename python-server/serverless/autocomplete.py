@@ -12,44 +12,79 @@ stadiums_df = pd.read_csv(data_dir + 'stadiums.txt', delimiter="\t")
 teams = pd.read_csv(data_dir + 'teams.txt', delimiter="\t")["Names"].tolist()
 keywords = pd.read_csv(data_dir + 'keywords.txt', delimiter="\t")["Keywords"].tolist()
 stadiums = stadiums_df["Names"].tolist()
-city = stadiums_df["City"].tolist()
+cities = stadiums_df["City"].tolist()
 players = [*players_df["Formal Name"].tolist(), *players_df["Commonly Called as"].tolist()]
+
+import inflect
+
+inflect = inflect.engine()
+plural_keywords = list(
+    reversed([word for word in keywords if len(word.split(" ")) < 2 and not inflect.singular_noun(word) is False]))
+
+import nltk
+
+nltk.download('averaged_perceptron_tagger')
+nltk.download('punkt')
+superlative_keywords = []
+for word in keywords:
+    tagged_sent = nltk.pos_tag(nltk.word_tokenize("who is the " + word))
+    superlative = False
+    if tagged_sent[3][1] in ["JJS", "JJ"] or len(word.split(" ")) > 2:
+        superlative = True
+    if superlative:
+        superlative_keywords = [*superlative_keywords, word]
+
+import language_check
+
+tool = language_check.LanguageTool('en-US')
+superlative_keywords = [keyword for keyword in superlative_keywords if
+                        len(tool.check("Who is the " + keyword + "?")) == 0]
+
+
+def filter_with(keyword, some_list):
+    if len(keyword.strip()) == 0:
+        return some_list
+    return [elem for elem in some_list if elem.lower().startswith(keyword)]
 
 
 def get_suggestions_for(text):
-    current_word = list(filter(len, text.split(" ")))[-1].lower()
+    current_word = text.split(" ")[-1].lower()
     context = " ".join(text.split(" ")[:-1]).lower().strip()
-    applicable_keywords = [keyword for keyword in keywords if keyword.lower().startswith(current_word)]
-    applicable_stadiums = [stadium for stadium in stadiums if stadium.lower().startswith(current_word)]
-    applicable_players = [player for player in players if player.lower().startswith(current_word)]
-    applicable_teams = [team for team in teams if team.lower().startswith(current_word)]
+    applicable_keywords = filter_with(current_word, keywords)
+    applicable_stadiums = filter_with(current_word, stadiums)
+    applicable_city = filter_with(current_word, cities)
+    applicable_players = filter_with(current_word, players)
+    applicable_teams = filter_with(current_word, teams)
+    applicable_countable_keywords = filter_with(current_word, plural_keywords)
+    applicable_superlative_keywords = filter_with(current_word, superlative_keywords)
 
     suggestions = [*applicable_keywords, *applicable_stadiums]
     if context.endswith("where is"):
         suggestions = [*applicable_stadiums]
 
     if context.endswith("number of"):
-        suggestions = ["players", "centuries", "matches", "sixes", "boundaries"]
+        suggestions = [*applicable_countable_keywords]
+
     if context.endswith("by"):
-        suggestions = [*players]
+        suggestions = [*applicable_players]
 
     if context.endswith("how many"):
-        suggestions = ["players", "centuries", "matches"]
+        suggestions = [*applicable_countable_keywords]
+
     if context.endswith("in"):
-        suggestions = [*stadiums, *city]
+        suggestions = [*applicable_stadiums, *applicable_city]
 
     if context.endswith("against"):
-        suggestions = [*teams]
+        # TODO past player search
+        suggestions = [*applicable_teams]
 
     if context.endswith("who is the"):
-        suggestions = ["man of the match", "best", "top"]
-    if context.endswith("ma"):
-        suggestions = ["man of the match"]
+        suggestions = [*applicable_superlative_keywords]
 
     if context.endswith("how much did"):
-        suggestions = [*players, teams]
+        suggestions = [*applicable_players, *applicable_teams]
 
-    return suggestions
+    return suggestions[0:6]
 
 
 def autocomplete_word():
